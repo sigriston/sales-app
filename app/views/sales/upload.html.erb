@@ -1,2 +1,19 @@
-<h1>Sales#upload</h1>
-<p>Find me in app/views/sales/upload.html.erb</p>
+<div class="container-fluid">
+  <h1>Upload de Arquivo de Dados</h1>
+
+  <%= form_with url: import_sales_path do |f| %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-4">
+          <%= f.label :file, "Arquivo" %>
+          <%= f.file_field :file, :class => "filestyle",
+            :data => {'buttonText' => "&nbsp;Selecionar Arquivo"} %>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      <%= f.submit "Enviar Dados", class: "btn btn-default" %>
+    </p>
+  <% end %>
+</div>
