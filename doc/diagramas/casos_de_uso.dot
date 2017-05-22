@@ -1,0 +1,27 @@
+digraph {
+  nodesep = 2;
+  ranksep = 2;
+
+  Start[style=invis]
+
+  A[label="Boas Vindas"]
+  B[label="Upload de Arquivo"]
+  C[label="Dados Importados"]
+  D[label="Vendas Realizadas"]
+
+  Start -> A [label="Início"]
+
+  A -> B [label="Upload"]
+  A -> D [label="Vendas"]
+
+  B -> A [label="Home"]
+  B -> C [label="Submeter"]
+  B -> D [label="Vendas"]
+
+  C -> A [label="Home"]
+  C -> B [label="Upload"]
+  C -> D [label="Vendas"]
+
+  D -> A [label="Home"]
+  D -> B [label="Upload"]
+}
