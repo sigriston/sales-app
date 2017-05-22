@@ -16,3 +16,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* padding for fixed bootstrap navbar */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
