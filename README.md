@@ -1,6 +1,6 @@
 # sales-app
 
-[![Build Status](https://travis-ci.org/sigriston/sales-app.svg?branch=master)](https://travis-ci.org/sigriston/sales-app)
+[![Build Status](https://travis-ci.org/sigriston/sales-app.svg?branch=master)](https://travis-ci.org/sigriston/sales-app) [![Coverage Status](https://coveralls.io/repos/github/sigriston/sales-app/badge.svg?branch=master)](https://coveralls.io/github/sigriston/sales-app?branch=master)
 
 Esta é uma aplicação simples de controle de vendas, feita para o [desafio de
 programação Rails] da [Nama].
