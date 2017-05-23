@@ -134,4 +134,9 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     }
     assert_redirected_to upload_sales_path
   end
+
+  test "import with malformed file param" do
+    post import_sales_path, params: { file: "not a file!" }
+    assert_redirected_to upload_sales_path
+  end
 end

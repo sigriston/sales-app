@@ -8,7 +8,8 @@ class SalesController < ApplicationController
   end
 
   def import
-    if params.has_key?("file")
+    if params[:file].present? and
+        params[:file].instance_of? ActionDispatch::Http::UploadedFile
       file = params[:file]
 
       if file.content_type != "text/plain"
