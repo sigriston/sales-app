@@ -1,0 +1,7 @@
+Fornecedor	Preço Unitário	Endereço	Quantidade	Comprador	Descrição
+Reinger LLC	0.57	Suite 901 179 Etha Tunnel, Naderfort, OK 97538-5788	7	Santina Feeney	Awesome Wool Bench
+Ondricka-Ankunding	0.87	Suite 445 972 Schowalter Bridge, DuBuqueland, CT 86732-1592	8	Ms. Annie Lakin	Lightweight Granite Lamp
+Wehner, Kuvalis and Jacobi	8.29	Suite 564 287 Emmerich Forest, East Cielo, MT 34145	1	Aaron Daniel	Fantastic Copper Car
+Reinger LLC	4.81	Suite 901 179 Etha Tunnel, Naderfort, OK 97538-5788	11	Frances Ziemann	Gorgeous Iron Gloves
+Schmitt-Boyle	3.49	8927 Jane Stravenue, South Wellingtonland, WV 86991	10	Aaron Daniel	Enormous Steel Shoes
+Wehner, Kuvalis and Jacobi	3.01	69434 Powlowski Spurs, Sandraburgh, WY 12232-7029	4	Miss Britney Zboncak	Small Aluminum Wallet
