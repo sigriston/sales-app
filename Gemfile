@@ -44,6 +44,8 @@ group :development, :test do
   # For code coverage in tests
   gem 'simplecov', :require => false
   gem 'coveralls', :require => false
+  # For generating fake data in tests
+  gem 'faker', '~> 1.7'
 end
 
 group :development do
