@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522194502) do
+ActiveRecord::Schema.define(version: 20170523021126) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_customers_on_name", unique: true
+  end
+
+  create_table "vendors", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "address", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "address"], name: "index_vendors_on_name_and_address", unique: true
   end
 
 end
