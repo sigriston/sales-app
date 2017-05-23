@@ -24,6 +24,14 @@ class SaleTest < ActiveSupport::TestCase
         vendor: "Hane-Wiegand"
       }
     ]
+    @diff_address_row = {
+      customer: "Miss Felicia Dickens",
+      description: "EVGA GeForce GTX 1080 Ti FE 11G-P4-6390-KR 11GB",
+      price: 699.99,
+      quantity: 2,
+      address: "17888 Willms Vista, West Donavonberg, FL 89286",
+      vendor: "Hane-Wiegand"
+    }
   end
 
   test "add new sale" do
@@ -109,5 +117,12 @@ class SaleTest < ActiveSupport::TestCase
       assert_equal row[:address], sale.product.vendor.address
       assert_equal row[:vendor], sale.product.vendor.name
     end
+  end
+
+  test "create_row allow vendor with different address" do
+    sale = Sale.create_row(@rows[1])
+    alt_sale = Sale.create_row(@diff_address_row)
+    assert_not_equal alt_sale.product.vendor.address,
+      sale.product.vendor.address
   end
 end

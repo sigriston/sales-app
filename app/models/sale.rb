@@ -14,7 +14,8 @@ class Sale < ApplicationRecord
   def self.create_row(row)
     customer = Customer.find_or_create_by_retry(name: row[:customer])
 
-    vendor = Vendor.find_or_create_by_retry(name: row[:vendor]) do |v|
+    vendor = Vendor.find_or_create_by_retry(name: row[:vendor],
+                                            address: row[:address]) do |v|
       v.address = row[:address]
     end
 
