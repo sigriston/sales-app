@@ -1,5 +1,7 @@
 # sales-app
 
+[![Build Status](https://travis-ci.org/sigriston/sales-app.svg?branch=master)](https://travis-ci.org/sigriston/sales-app)
+
 Esta é uma aplicação simples de controle de vendas, feita para o [desafio de
 programação Rails] da [Nama].
 
