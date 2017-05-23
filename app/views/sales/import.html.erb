@@ -1,32 +1,5 @@
 <div class="container-fluid">
   <h1>Dados Importados</h1>
 
-  <table id="sales-table" class="table">
-    <tr>
-      <th>Comprador</th>
-      <th>Fornecedor</th>
-      <th>Endereço</th>
-      <th>Descrição</th>
-      <th>Preço Unitário</th>
-      <th>Quantidade</th>
-      <th>Preço Total</th>
-    </tr>
-
-    <% @sales.each do |sale| %>
-      <tr>
-        <td><%= sale.customer.name %></td>
-        <td><%= sale.product.vendor.name %></td>
-        <td><%= sale.product.vendor.address %></td>
-        <td><%= sale.product.description %></td>
-        <td><%= sale.product.price %></td>
-        <td><%= sale.quantity %></td>
-        <td><%= sale.total %></td>
-      </tr>
-    <% end %>
-
-    <tr>
-      <th colspan="6">Total em Vendas</th>
-      <th><%= @grandtotal %></th>
-    </tr>
-  </table>
+  <%= render 'sales' %>
 </div>

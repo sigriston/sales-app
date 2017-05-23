@@ -6,6 +6,75 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "index with no data" do
+    Sale.delete_all
+    get sales_path
+
+    assert_select "h3", "Nenhum registro encontrado!"
+    assert_response :success
+  end
+
+  test "index with fixture data" do
+    get sales_path
+
+    assert_select "table#sales-table"
+
+    # headers
+    assert_select "table#sales-table tr:nth-child(1) th:nth-child(1)",
+      "Comprador"
+    assert_select "table#sales-table tr:nth-child(1) th:nth-child(2)",
+      "Fornecedor"
+    assert_select "table#sales-table tr:nth-child(1) th:nth-child(3)",
+      "Endereço"
+    assert_select "table#sales-table tr:nth-child(1) th:nth-child(4)",
+      "Descrição"
+    assert_select "table#sales-table tr:nth-child(1) th:nth-child(5)",
+      "Preço Unitário"
+    assert_select "table#sales-table tr:nth-child(1) th:nth-child(6)",
+      "Quantidade"
+    assert_select "table#sales-table tr:nth-child(1) th:nth-child(7)",
+      "Preço Total"
+
+    # data
+    assert_select "table#sales-table tr:nth-child(2) td:nth-child(1)",
+      "Sicrano de Tal"
+    assert_select "table#sales-table tr:nth-child(2) td:nth-child(2)",
+      "Shi Qiang"
+    assert_select "table#sales-table tr:nth-child(2) td:nth-child(3)",
+      "No. 51 Weijin South Road"
+    assert_select "table#sales-table tr:nth-child(2) td:nth-child(4)",
+      "Mac and Cheese"
+    assert_select "table#sales-table tr:nth-child(2) td:nth-child(5)",
+      "10.95"
+    assert_select "table#sales-table tr:nth-child(2) td:nth-child(6)",
+      "5"
+    assert_select "table#sales-table tr:nth-child(2) td:nth-child(7)",
+      "54.75"
+
+    assert_select "table#sales-table tr:nth-child(3) td:nth-child(1)",
+      "Fulano de Tal"
+    assert_select "table#sales-table tr:nth-child(3) td:nth-child(2)",
+      "Ye Wenjie"
+    assert_select "table#sales-table tr:nth-child(3) td:nth-child(3)",
+      "Tsinghua University"
+    assert_select "table#sales-table tr:nth-child(3) td:nth-child(4)",
+      "BLT"
+    assert_select "table#sales-table tr:nth-child(3) td:nth-child(5)",
+      "7.99"
+    assert_select "table#sales-table tr:nth-child(3) td:nth-child(6)",
+      "3"
+    assert_select "table#sales-table tr:nth-child(3) td:nth-child(7)",
+      "23.97"
+
+    # grandtotal
+    assert_select "table#sales-table tr:nth-child(4) th:nth-child(1)",
+      "Total em Vendas"
+    assert_select "table#sales-table tr:nth-child(4) th:nth-child(2)",
+      "78.72"
+
+    assert_response :success
+  end
+
   test "should get upload" do
     get upload_sales_path
     assert_response :success
