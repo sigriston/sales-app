@@ -43,6 +43,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   # For code coverage in tests
   gem 'simplecov', :require => false
+  gem 'coveralls', :require => false
 end
 
 group :development do
