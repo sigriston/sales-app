@@ -46,6 +46,8 @@ group :development, :test do
   gem 'coveralls', :require => false
   # For generating fake data in tests
   gem 'faker', '~> 1.7'
+  # For controller DOM testing
+  gem 'rails-dom-testing', '~> 2.0'
 end
 
 group :development do
