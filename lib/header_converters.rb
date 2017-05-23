@@ -1,7 +1,7 @@
 require 'csv'
 
 module HeaderConverters
-  header_equiv = {
+  HEADER_EQUIV = {
     "Comprador"      => :customer,
     "Descrição"      => :description,
     "Preço Unitário" => :price,
@@ -10,8 +10,8 @@ module HeaderConverters
     "Fornecedor"     => :vendor
   }
   CSV::HeaderConverters[:sales] = lambda do |h|
-    if header_equiv.has_key?(h)
-      header_equiv[h]
+    if HEADER_EQUIV.has_key?(h)
+      HEADER_EQUIV[h]
     else
       CSV::HeaderConverters[:symbol].call h
     end

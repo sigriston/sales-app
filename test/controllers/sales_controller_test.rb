@@ -113,4 +113,25 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table#sales-table tr:nth-child(6) th:nth-child(2)",
       "95.0"
   end
+
+  test "import with malformed text file" do
+    post import_sales_path, params: {
+      file: fixture_file_upload('files/shakes.txt', 'text/plain')
+    }
+    assert_redirected_to upload_sales_path
+  end
+
+  test "import with image file" do
+    post import_sales_path, params: {
+      file: fixture_file_upload('files/rails.png', 'image/png')
+    }
+    assert_redirected_to upload_sales_path
+  end
+
+  test "import with image file but text MIME type" do
+    post import_sales_path, params: {
+      file: fixture_file_upload('files/rails.png', 'text/plain')
+    }
+    assert_redirected_to upload_sales_path
+  end
 end
