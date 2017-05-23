@@ -83,6 +83,9 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
   test "import with no file should redirect to upload" do
     post import_sales_path
     assert_redirected_to upload_sales_path
+    follow_redirect!
+    assert_response :success
+    assert_select ".alert.alert-danger", "Faltando arquivo para upload!"
   end
 
   test "import with file should work ok" do
@@ -188,6 +191,9 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
       file: fixture_file_upload('files/shakes.txt', 'text/plain')
     }
     assert_redirected_to upload_sales_path
+    follow_redirect!
+    assert_response :success
+    assert_select ".alert.alert-danger", "Arquivo Inválido!"
   end
 
   test "import with image file" do
@@ -195,6 +201,9 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
       file: fixture_file_upload('files/rails.png', 'image/png')
     }
     assert_redirected_to upload_sales_path
+    follow_redirect!
+    assert_response :success
+    assert_select ".alert.alert-danger", "Arquivo Inválido!"
   end
 
   test "import with image file but text MIME type" do
@@ -202,10 +211,16 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
       file: fixture_file_upload('files/rails.png', 'text/plain')
     }
     assert_redirected_to upload_sales_path
+    follow_redirect!
+    assert_response :success
+    assert_select ".alert.alert-danger", "Arquivo Inválido!"
   end
 
   test "import with malformed file param" do
     post import_sales_path, params: { file: "not a file!" }
     assert_redirected_to upload_sales_path
+    follow_redirect!
+    assert_response :success
+    assert_select ".alert.alert-danger", "Faltando arquivo para upload!"
   end
 end

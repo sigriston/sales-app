@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <h1>Upload de Arquivo de Dados</h1>
 
+  <% if flash[:alert] -%>
+    <%= content_tag :div, flash[:alert], class: "alert alert-danger" %>
+  <% end -%>
+
   <%= form_with url: import_sales_path, local: true do |f| %>
     <div class="form-group">
       <div class="row">
