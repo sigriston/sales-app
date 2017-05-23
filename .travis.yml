@@ -1,0 +1,6 @@
+language: ruby
+rvm:
+  - 2.4.1
+script:
+  - bin/rails db:migrate
+  - bin/rails test
