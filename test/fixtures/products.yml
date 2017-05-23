@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
-  price: 9.99
+  description: BLT
+  price: 7.99
   vendor: one
 
 two:
-  description: MyString
-  price: 9.99
+  description: Mac and Cheese
+  price: 10.95
   vendor: two
