@@ -18,15 +18,15 @@
         <td><%= sale.product.vendor.name %></td>
         <td><%= sale.product.vendor.address %></td>
         <td><%= sale.product.description %></td>
-        <td><%= sale.product.price %></td>
+        <td><%= number_to_currency(sale.product.price) %></td>
         <td><%= sale.quantity %></td>
-        <td><%= sale.total %></td>
+        <td><%= number_to_currency(sale.total) %></td>
       </tr>
     <% end %>
 
     <tr>
       <th colspan="6">Total em Vendas</th>
-      <th><%= @grandtotal %></th>
+      <th><%= number_to_currency(@grandtotal) %></th>
     </tr>
   </table>
 <% end %>

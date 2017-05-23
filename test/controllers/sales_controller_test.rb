@@ -45,11 +45,11 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(4)",
       "Mac and Cheese"
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(5)",
-      "10.95"
+      "$10.95"
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(6)",
       "5"
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(7)",
-      "54.75"
+      "$54.75"
 
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(1)",
       "Fulano de Tal"
@@ -60,17 +60,17 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(4)",
       "BLT"
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(5)",
-      "7.99"
+      "$7.99"
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(6)",
       "3"
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(7)",
-      "23.97"
+      "$23.97"
 
     # grandtotal
     assert_select "table#sales-table tr:nth-child(4) th:nth-child(1)",
       "Total em Vendas"
     assert_select "table#sales-table tr:nth-child(4) th:nth-child(2)",
-      "78.72"
+      "$78.72"
 
     assert_response :success
   end
@@ -128,11 +128,11 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(4)",
       "R$10 off R$20 of food"
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(5)",
-      "10.0"
+      "$10.00"
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(6)",
       "2"
     assert_select "table#sales-table tr:nth-child(2) td:nth-child(7)",
-      "20.0"
+      "$20.00"
 
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(1)",
       "Amy Pond"
@@ -143,11 +143,11 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(4)",
       "R$30 of awesome for R$10"
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(5)",
-      "10.0"
+      "$10.00"
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(6)",
       "5"
     assert_select "table#sales-table tr:nth-child(3) td:nth-child(7)",
-      "50.0"
+      "$50.00"
 
     assert_select "table#sales-table tr:nth-child(4) td:nth-child(1)",
       "Marty McFly"
@@ -158,11 +158,11 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table#sales-table tr:nth-child(4) td:nth-child(4)",
       "R$20 Sneakers for R$5"
     assert_select "table#sales-table tr:nth-child(4) td:nth-child(5)",
-      "5.0"
+      "$5.00"
     assert_select "table#sales-table tr:nth-child(4) td:nth-child(6)",
       "1"
     assert_select "table#sales-table tr:nth-child(4) td:nth-child(7)",
-      "5.0"
+      "$5.00"
 
     assert_select "table#sales-table tr:nth-child(5) td:nth-child(1)",
       "Snake Plissken"
@@ -173,17 +173,17 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_select "table#sales-table tr:nth-child(5) td:nth-child(4)",
       "R$20 Sneakers for R$5"
     assert_select "table#sales-table tr:nth-child(5) td:nth-child(5)",
-      "5.0"
+      "$5.00"
     assert_select "table#sales-table tr:nth-child(5) td:nth-child(6)",
       "4"
     assert_select "table#sales-table tr:nth-child(5) td:nth-child(7)",
-      "20.0"
+      "$20.00"
 
     # grandtotal
     assert_select "table#sales-table tr:nth-child(6) th:nth-child(1)",
       "Total em Vendas"
     assert_select "table#sales-table tr:nth-child(6) th:nth-child(2)",
-      "95.0"
+      "$95.00"
   end
 
   test "import with malformed text file" do
