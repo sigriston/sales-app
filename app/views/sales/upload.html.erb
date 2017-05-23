@@ -6,8 +6,7 @@
       <div class="row">
         <div class="col-sm-4">
           <%= f.label :file, "Arquivo" %>
-          <%= f.file_field :file, :class => "filestyle",
-            :data => {'buttonText' => "&nbsp;Selecionar Arquivo"} %>
+          <%= f.file_field :file %>
         </div>
       </div>
     </div>
@@ -17,3 +16,9 @@
     </p>
   <% end %>
 </div>
+
+<%= javascript_tag do %>
+(function() {
+  $(":file").filestyle({buttonText: '&nbsp;Selecionar Arquivo'});
+}());
+<% end %>
