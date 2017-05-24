@@ -13,16 +13,19 @@ class Sale < ApplicationRecord
 
   def self.create_row(row)
     customer = Customer.find_or_create_by_retry(name: row[:customer])
+    customer.validate!
 
     vendor = Vendor.find_or_create_by_retry(name: row[:vendor],
                                             address: row[:address]) do |v|
       v.address = row[:address]
     end
+    vendor.validate!
 
     product = Product.find_or_create_by_retry(description: row[:description],
                                               vendor: vendor) do |p|
       p.price = row[:price]
     end
+    product.validate!
 
     create(customer: customer, product: product, quantity: row[:quantity])
   end

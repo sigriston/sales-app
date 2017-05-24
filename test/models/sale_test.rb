@@ -32,6 +32,10 @@ class SaleTest < ActiveSupport::TestCase
       address: "17888 Willms Vista, West Donavonberg, FL 89286",
       vendor: "Hane-Wiegand"
     }
+    @bad_rows = @rows.deep_dup
+    @bad_rows[0][:quantity] = 3313
+    @bad_rows[1][:quantity] = 3314
+    @bad_rows[1][:customer] = ""
   end
 
   test "add new sale" do
@@ -124,5 +128,27 @@ class SaleTest < ActiveSupport::TestCase
     alt_sale = Sale.create_row(@diff_address_row)
     assert_not_equal alt_sale.product.vendor.address,
       sale.product.vendor.address
+  end
+
+  test "create_row cannot allow creating empty associations" do
+    assert_raise ActiveRecord::RecordInvalid do
+      Sale.create_row(@bad_rows[1])
+    end
+  end
+
+  test "bulk_create_row cannot persist any rows on error" do
+    assert_raise ActiveRecord::RecordInvalid do
+      Sale.bulk_create_row(@bad_rows)
+    end
+    assert_nil Customer.find_by(name: @bad_rows[0][:name])
+    assert_nil Customer.find_by(name: @bad_rows[1][:name])
+    assert_nil Vendor.find_by(name: @bad_rows[0][:vendor],
+                              address: @bad_rows[0][:address])
+    assert_nil Vendor.find_by(name: @bad_rows[1][:vendor],
+                              address: @bad_rows[1][:address])
+    assert_nil Product.find_by(description: @bad_rows[0][:description])
+    assert_nil Product.find_by(description: @bad_rows[1][:description])
+    assert_nil Sale.find_by(quantity: @bad_rows[0][:quantity])
+    assert_nil Sale.find_by(quantity: @bad_rows[1][:quantity])
   end
 end
