@@ -26,7 +26,7 @@ ambiente de produção.
 * [SQLite] versão 3
 * [zlib]
 * [Node.js]
-* [PostgreSQL] (somente se quiser rodar em **PRODUÇÃO**)
+* [PostgreSQL] (somente se quiser rodar em modo **PRODUÇÃO**)
 
 **Dica**: no [Ubuntu] 16.04 é possível instalar todas as dependências acima
 executando o script `ubuntu-install-deps.sh`.
@@ -44,10 +44,28 @@ bundle install --path vendor/bundle --without production
 precisar do [PostgreSQL] instalado localmente. Neste caso, suprima o `--without
 production` do comando `bundle install`.
 
-Concluída a instalação, você poderá executar a aplicação através do comando:
+Concluída a instalação, é preciso realizar a criação do banco de dados, com o
+seguinte comando:
+
+```console
+./bin/rails db:migrate
+```
+
+Após a criação do banco de dados, você poderá executar a aplicação através do
+comando:
 
 ```console
 ./bin/rails server
+```
+
+**Nota**: para modo produção, é preciso criar um banco de dados chamado
+`salesapp_production` no PostgreSQL. Depois, os comandos são os seguintes:
+
+```console
+export SALESAPP_DATABASE_PASSWORD=senha_do_usuario_salesapp_do_postgresql
+RAILS_ENV=production bin/rails db:migrate
+bin/rails assets:precompile
+SECRET_KEY_BASE=`bin/rails secret` RAILS_SERVE_STATIC_FILES=TRUE bin/rails server -e production
 ```
 
 Feito isto, basta apontar o navegador para o endereço http://localhost:3000
@@ -74,7 +92,8 @@ necessitem.
 
 ## Deployment
 
-**TODO**: documentar deployment.
+Esta aplicação está preparada para *deployment* no [Heroku], bastando para
+tanto seguir os passos na [documentação do Heroku para Rails 5].
 
 ## Contribuindo
 
@@ -99,3 +118,6 @@ MIT
 [Node.js]: https://nodejs.org
 [Ubuntu]: https://www.ubuntu.com/download/desktop
 [SimpleCov]: https://github.com/colszowka/simplecov
+[PostgreSQL]: https://www.postgresql.org
+[Heroku]: https://www.heroku.com
+[documentação do Heroku para Rails 5]: https://devcenter.heroku.com/articles/getting-started-with-rails5#deploy-your-application-to-heroku
