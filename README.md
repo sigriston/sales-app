@@ -37,7 +37,7 @@ Após clonar este repositório para sua máquina local, entre no diretório raiz
 repositório e instale as dependências da aplicação através do comando:
 
 ```console
-bundle install --path vendor/bundle --without production
+$ bundle install --path vendor/bundle --without production
 ```
 
 **Nota**: se quiser executar a aplicação localmente em modo produção, você irá
@@ -48,24 +48,25 @@ Concluída a instalação, é preciso realizar a criação do banco de dados, co
 seguinte comando:
 
 ```console
-./bin/rails db:migrate
+$ bin/rails db:migrate
 ```
 
 Após a criação do banco de dados, você poderá executar a aplicação através do
 comando:
 
 ```console
-./bin/rails server
+$ bin/rails server
 ```
 
 **Nota**: para modo produção, é preciso criar um banco de dados chamado
-`salesapp_production` no PostgreSQL. Depois, os comandos são os seguintes:
+`salesapp_production` no PostgreSQL, e um usuário `salesapp` que possa
+acessá-lo. Depois, os comandos são os seguintes:
 
 ```console
-export SALESAPP_DATABASE_PASSWORD=senha_do_usuario_salesapp_do_postgresql
-RAILS_ENV=production bin/rails db:migrate
-bin/rails assets:precompile
-SECRET_KEY_BASE=`bin/rails secret` RAILS_SERVE_STATIC_FILES=TRUE bin/rails server -e production
+$ export SALESAPP_DATABASE_PASSWORD=senha_do_usuario_salesapp_do_postgresql
+$ RAILS_ENV=production bin/rails db:migrate
+$ bin/rails assets:precompile
+$ SECRET_KEY_BASE=`bin/rails secret` RAILS_SERVE_STATIC_FILES=TRUE bin/rails server -e production
 ```
 
 Feito isto, basta apontar o navegador para o endereço http://localhost:3000
@@ -77,7 +78,7 @@ Para executar os testes automatizados, após as instruções de instalação
 detalhadas na seção anterior, basta executar o seguinte comando:
 
 ```console
-./bin/rails test
+$ bin/rails test
 ```
 
 **Nota:** ao executar os testes, é também contabilizada a cobertura de código
@@ -97,7 +98,9 @@ tanto seguir os passos na [documentação do Heroku para Rails 5].
 
 ## Contribuindo
 
-**TODO**: documentar contribuição.
+Para contribuir com o projeto, o requerimento mínimo é a leitura do arquivo
+[doc/principal.md], onde existe uma explicação de alto nível sobre a aplicação,
+como ela está estruturada e como funciona.
 
 ## Autor
 
@@ -121,3 +124,4 @@ MIT
 [PostgreSQL]: https://www.postgresql.org
 [Heroku]: https://www.heroku.com
 [documentação do Heroku para Rails 5]: https://devcenter.heroku.com/articles/getting-started-with-rails5#deploy-your-application-to-heroku
+[doc/principal.md]: doc/principal.md

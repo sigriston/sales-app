@@ -1,0 +1,34 @@
+digraph {
+  graph[rankdir=LR, overlap=false, splines=true];
+  node [shape=record, fontsize=9, fontname="Verdana"];
+  edge [style=dashed, fontsize=8, fontname="Verdana"];
+  Customer [shape=none, margin=0, label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr><td port="0" bgcolor="lightblue">Customer</td></tr>
+        <tr><td port="1" align="left">name: string</td></tr>
+    </table>>];
+  Vendor [shape=none, margin=0, label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr><td port="0" bgcolor="lightblue">Vendor</td></tr>
+        <tr><td port="1" align="left">name: string</td></tr>
+        <tr><td port="2" align="left">address: string</td></tr>
+    </table>>];
+  Product [shape=none, margin=0, label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr><td port="0" bgcolor="lightblue">Product</td></tr>
+        <tr><td port="1" align="left">description: string</td></tr>
+        <tr><td port="2" align="left">price: decimal</td></tr>
+        <tr><td port="3" align="left">vendor: references</td></tr>
+    </table>>];
+  Sale [shape=none, margin=0, label=<
+    <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr><td port="0" bgcolor="lightblue">Sale</td></tr>
+        <tr><td port="1" align="left">quantity: integer</td></tr>
+        <tr><td port="2" align="left">customer: references</td></tr>
+        <tr><td port="3" align="left">product: references</td></tr>
+    </table>>];
+
+  Product:3 -> Vendor:0 [label="belongs_to"];
+  Sale:2 -> Customer:0 [label="belongs_to"];
+  Sale:3 -> Product:0 [label="belongs_to"];
+}
