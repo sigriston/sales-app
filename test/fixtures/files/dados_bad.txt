@@ -1,0 +1,6 @@
+Comprador	Descrição	Preço Unitário	Quantidade	Endereço	Fornecedor
+Grace Daugherty	Mediocre Leather Wallet	0.77	1	2337 Darby Station, West Fabiolatown, OH 26867-5995	Waelchi, Bahringer and Harber
+Elbert Herzog	Intelligent Rubber Hat	6.29	6	Suite 768 9663 Ursula Plaza, East Isabelstad, HI 73651-0807	Schuster and Sons
+Einar Huels	Ergonomic Copper Wallet	0.18	11	Suite 237 86767 Watsica Junction, Catherineton, AR 30786	D'Amore, Walter and Rogahn
+	Small Granite Bench	2.75	8	Suite 809 2950 Vernon Points, Larissatown, WA 69223	Hayes LLC
+Brooklyn Gerhold	Intelligent Aluminum Gloves	5.66	9	3602 Spinka Hills, Karleeside, AR 76709	Gorczany-Dach

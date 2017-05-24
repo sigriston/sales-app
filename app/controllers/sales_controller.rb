@@ -36,7 +36,13 @@ class SalesController < ApplicationController
         return
       end
 
-      @sales = Sale.bulk_create_row(data)
+      begin
+        @sales = Sale.bulk_create_row(data)
+      rescue ActiveRecord::RecordInvalid
+        redirect_to upload_sales_path, alert: "Arquivo possui campos inválidos!"
+        return
+      end
+
       @grandtotal = @sales.map { |row| row.total }.reduce(:+)
     else
       redirect_to upload_sales_path, alert: "Faltando arquivo para upload!"

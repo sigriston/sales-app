@@ -223,4 +223,15 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select ".alert.alert-danger", "Faltando arquivo para upload!"
   end
+
+  test "import with invalid fields" do
+    post import_sales_path, params: {
+      file: fixture_file_upload('files/dados_bad.txt', 'text/plain')
+    }
+
+    assert_redirected_to upload_sales_path
+    follow_redirect!
+    assert_response :success
+    assert_select ".alert.alert-danger", "Arquivo possui campos inválidos!"
+  end
 end
