@@ -26,6 +26,7 @@ ambiente de produção.
 * [SQLite] versão 3
 * [zlib]
 * [Node.js]
+* [PostgreSQL] (somente se quiser rodar em **PRODUÇÃO**)
 
 **Dica**: no [Ubuntu] 16.04 é possível instalar todas as dependências acima
 executando o script `ubuntu-install-deps.sh`.
@@ -36,8 +37,12 @@ Após clonar este repositório para sua máquina local, entre no diretório raiz
 repositório e instale as dependências da aplicação através do comando:
 
 ```console
-bundle install --path vendor/bundle
+bundle install --path vendor/bundle --without production
 ```
+
+**Nota**: se quiser executar a aplicação localmente em modo produção, você irá
+precisar do [PostgreSQL] instalado localmente. Neste caso, suprima o `--without
+production` do comando `bundle install`.
 
 Concluída a instalação, você poderá executar a aplicação através do comando:
 
